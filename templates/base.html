@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My App{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+
+        nav {
+            background-color: #C1038B; /* Your brand color */
+            color: white; /* White text color for links */
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .flashes {
+            background-color: #FFE5E5; /* Light pink background for flash messages */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #FFB3B3; /* Lighter pink border */
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+    <!-- ... other head elements ... -->
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+            <li><a href="{{ url_for('reco') }}">Recommended Safe Places</a></li>
+            <li><a href="{{ url_for('signup') }}"></a><b>Signup</b></li>
+        </ul>
+    </nav>
+
+    <div>
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <!-- ... other body elements ... -->
+</body>
+</html>

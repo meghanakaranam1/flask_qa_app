@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #af1281;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #b15094;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px);
+        }
+
+        .left-card {
+            order: 1;
+        }
+
+        .right-card {
+            order: 2;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: #C1038B;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #C1038B;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to SafeHER - A safe place for her!</h1>
+        
+        <div class="card-container">
+
+            <!-- Feed Section -->
+            <div class="card left-card">
+                <p>Join our community and share your experiences to empower others.</p>
+                <div class="button-container">
+                    <a href="{{ url_for('feed') }}" class="button">Go to Feed</a>
+                </div>
+            </div>
+
+            <!-- Mental Health Chatbot Section -->
+            <div class="card left-card">
+                <p>Your mental well-being matters. Reach out to our Mental Health Chatbot for support and guidance.</p>
+                <div class="button-container">
+                    <a href="{{ url_for('login') }}" class="button">Mental Health Chatbot</a>
+                </div>
+            </div>
+            
+            <!-- Recommended Places Section -->
+            <div class="card right-card">
+                <p>Explore our recommended safe places for an enhanced sense of security.</p>
+                <div class="button-container">
+                    <a href="{{ url_for('login') }}" class="button">Recommended Places</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Experiences</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #5F0A87;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .top-buttons a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .top-buttons a:hover {
+            color: #FF5390; /* Change color on hover */
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button{
+            background-color: #5F0A87;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: #C1038B;
+            color: white;
+            padding: 5px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5F0A87;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}"><b>Home</b></a></li>
+            <li><a href="{{ url_for('feed') }}"><b>Feed</b></a></li>
+            <li><a href="{{ url_for('reco') }}"><b>Recommended Safe Places</b></a></li>
+            <li><a href="{{ url_for('chatbot') }}"><b>Chatbot</b></a></li>
+            <li><a href="{{ url_for('logout') }}"><b>Logout</b></a></li>
+        </ul>
+    </nav>
+
+    <h2>Welcome, {{ current_user.username }}!</h2>
+    <form method="post">
+        <textarea name="content" placeholder="Share your experience" rows="4" cols="50" required></textarea><br>
+        <input type="text" name="location" placeholder="Location" required>
+        <button type="submit">Share</button>
+    </form>
+    
+    {% if posts %}
+        <h2>Your Recent Experiences:</h2>
+        <ul>
+            {% for post in posts %}
+                <li>{{ post.content }} - {{ post.location.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No experiences yet.</p>
+    {% endif %}
+</body>
+</html>

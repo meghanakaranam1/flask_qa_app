@@ -1,0 +1,42 @@
+/* static/style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.feed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card a {
+    color: #337ab7;
+    text-decoration: none;
+}
